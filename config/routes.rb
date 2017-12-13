@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   # with_options only: %i[index create update delete] do |list_only|
   #   list_only.resources :projects
   # end
-  namespace :api do#, defaults: { format: :json } do
-    namespace :v1, constraints: lambda { |req| req.format == :json } do
+  namespace :api, defaults: { format: :json } do
+    namespace :v1 do
       resources :projects, only: %i[index create update destroy]
     end
   end

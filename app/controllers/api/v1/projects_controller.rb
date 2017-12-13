@@ -1,27 +1,15 @@
-module API
-  module V1
+class API::V1::ProjectsController < ApplicationController
+  def index
+    projects = Project.all
+    render json: projects, status: 200
+  end
 
-    # respond_to :json
+  def create
+  end
 
-    class ProjectsController < ApplicationController
+  def update
+  end
 
-      def index
-        # respond_to do |format|
-          # format.json do
-            projects = Project.all
-            render json: projects, status: 200
-          # end
-        # end
-      end
-
-      def create
-      end
-
-      def update
-      end
-
-      def destroy
-      end
-    end
+  def destroy
   end
 end
