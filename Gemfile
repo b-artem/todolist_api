@@ -5,11 +5,13 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'devise_token_auth', '~> 0.1.42'
+gem 'figaro', '~> 1.1', '>= 1.1.1'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.7'
 gem 'rails', '~> 5.1.4'
 # gem 'jbuilder', '~> 2.5'
-# gem 'rack-cors'
+gem 'rack-cors', '~> 1.0', '>= 1.0.2', require: 'rack/cors'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 group :development, :test do
