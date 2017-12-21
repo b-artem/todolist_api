@@ -8,17 +8,27 @@ module API
       describe 'GET #index' do
         before { get api_v1_projects_path }
 
-        it 'returns http status code 200' do
-          expect(response).to have_http_status 200
+        context 'when guest user' do
+          it 'returns http status code 401' do
+            expect(response).to have_http_status 401
+          end
         end
+
+        # context 'when user signed in' do
+        #   it 'returns http status code 200' do
+        #     expect(response).to have_http_status 200
+        #   end
+
+          # it 'returns array of projects' do
+          #   expect(json.size).to eq projects.size
+          # end
+        # end
 
         it 'returns response in JSON' do
           expect(response.content_type).to eq 'application/json'
         end
 
-        it 'returns array of projects' do
-          expect(json.size).to eq projects.size
-        end
+
         # it "creates a Widget" do
         #   headers = {
         #     "ACCEPT" => "application/json",     # This is what Rails 4 accepts

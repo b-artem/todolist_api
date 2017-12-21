@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  mount_devise_token_auth_for 'User', at: 'auth'
+  scope '/api/v1' do
+    mount_devise_token_auth_for 'User', at: 'auth'
+  end
   # with_options only: %i[index create update delete] do |list_only|
   #   list_only.resources :projects
   # end
