@@ -1,5 +1,18 @@
 require 'rails_helper'
 
 RSpec.describe Task, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  let(:task) { build :task }
+
+  it 'has a valid factory' do
+    expect(task).to be_valid
+  end
+
+  it 'is not done by default' do
+    expect(task.done).to be false
+  end
+
+  it { is_expected.to belong_to(:project) }
+
+  it { is_expected.to validate_presence_of(:name) }
+  it { is_expected.to validate_length_of(:name).is_at_least(1) }
 end

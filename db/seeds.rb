@@ -15,3 +15,16 @@ Project.create!([
   { name: 'Another project', user_id: 1 },
   { name: 'Project number 3', user_id: 2 }
 ])
+
+Task.create!([
+  { name: 'Buy airway tickets', project_id: 1 },
+  { name: 'Book an apartment', project_id: 1 },
+  { name: 'Buy railway and bus tickets', project_id: 1 },
+  { name: 'Choose must-seen places', project_id: 1 },
+  { name: 'Check-in on flight', project_id: 1 },
+  { name: 'Another task 111', project_id: 2 },
+  { name: 'Another one task 424', project_id: 2 },
+  { name: 'Very important task', project_id: 2 },
+  { name: 'Go to the cinema', project_id: 3 },
+  { name: 'Drink coffee', project_id: 3, done: true }
+])
