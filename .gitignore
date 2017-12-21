@@ -16,7 +16,6 @@
 .byebug_history
 
 .ruby-gemset
-/config/secrets.yml
 
 # Ignore application configuration
 /config/application.yml
