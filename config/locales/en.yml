@@ -31,4 +31,11 @@
 
 en:
   application:
-    unacceptable_request_format: "Unacceptable request format. Use 'application/json please" 
+    unacceptable_request_format: "Unacceptable request format. Use 'application/json please"
+  models:
+    project:
+      already_exists: 'The project with such name does already exist'
+  projects:
+    destroy:
+      fail: 'Can not delete that project!'
+        
