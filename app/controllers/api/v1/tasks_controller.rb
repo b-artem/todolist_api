@@ -7,9 +7,19 @@ class API::V1::TasksController < ApplicationController
     render json: { errors: @task.errors }, status: :unprocessable_entity
   end
 
+  def update
+    return render json: @task, status: :ok if @task.update_attributes(task_params)
+    render json: { errors: @task.errors }, status: :unprocessable_entity
+  end
+
+  def destroy
+    return head :no_content if @task.destroy
+    render json: { errors: I18n.t('.fail') }
+  end
+
   private
 
     def task_params
-      params.require(:task).permit(:name)
+      params.require(:task).permit(:name, :done, :deadline)
     end
 end

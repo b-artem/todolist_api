@@ -35,7 +35,11 @@ en:
   models:
     project:
       already_exists: 'The project with such name does already exist'
+    task:
+      already_exists: 'The task with such name does already exist'
   projects:
     destroy:
-      fail: 'Can not delete that project!'
-        
+      fail: 'Can not delete this project!'
+  tasks:
+    destroy:
+      fail: 'Can not delete this task!'
