@@ -4,6 +4,10 @@ class API::V1::TasksController < ApplicationController
   load_and_authorize_resource :project
   load_and_authorize_resource through: :project
 
+  def index
+    render json: @tasks, status: :ok
+  end
+
   def create
     return render json: @task, status: :created if @task.save
     render json: { errors: @task.errors }, status: :unprocessable_entity
@@ -13,7 +17,6 @@ class API::V1::TasksController < ApplicationController
     task_update = Services::TaskUpdate.new(task: @task, task_params: task_params,
       change_priority: params[:change_priority])
     return render json: @task, status: :ok if task_update.call
-    # return render json: @task, status: :ok if @task.update_attributes(task_params)
     render json: { errors: @task.errors }, status: :unprocessable_entity
   end
 

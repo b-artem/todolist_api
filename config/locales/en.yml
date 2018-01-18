@@ -44,3 +44,6 @@ en:
   tasks:
     destroy:
       fail: 'Can not delete this task!'
+  comments:
+    destroy:
+      fail: 'Can not delete this comment!'

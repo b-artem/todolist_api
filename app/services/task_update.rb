@@ -10,11 +10,9 @@ module Services
 
     def call
       return @task.update_attributes(@task_params) unless @change_priority
-      Task.transaction do
-        update_priority
+      @task.transaction do
         update_all_except_priority
-      catch
-        return false
+        update_priority
       end
     end
 
@@ -23,13 +21,13 @@ module Services
       def update_priority
         unless DIRECTIONS.include?(@change_priority)
           @task.errors.add(:priority, I18n.t('models.task.wrong_priority'))
-          return false
+          return raise ActiveRecord::RecordInvalid
         end
         @change_priority == 'up' ? @task.move_higher : @task.move_lower
       end
 
       def update_all_except_priority
-        @task.update_attributes(@task_params)
+        @task.update!(@task_params)
       end
   end
 end
