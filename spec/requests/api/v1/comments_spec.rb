@@ -54,6 +54,7 @@ RSpec.describe 'API::V1 Comments', type: :request do
 
         include_examples 'returns status code 201'
         include_examples 'returns response in JSON'
+        include_examples 'matches response schema', :comment_text_only
 
         it 'returns created comment' do
           expect(json['text']).to eq valid_attributes[:text]

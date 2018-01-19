@@ -35,5 +35,6 @@ end
 group :test do
   gem 'database_cleaner', '~> 1.6', '>= 1.6.2'
   gem 'faker', '~> 1.8', '>= 1.8.5'
+  gem 'json-schema', '~> 2.8'
   gem 'shoulda-matchers', '~> 3.1', '>= 3.1.2'
 end

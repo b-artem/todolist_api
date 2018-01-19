@@ -1,3 +1,5 @@
+require 'support/api_schema_matcher'
+
 module RequestSpecHelper
   def json
     JSON.parse(response.body)
@@ -7,6 +9,12 @@ module RequestSpecHelper
     it 'returns validation failure message' do
       expect(response.body)
       .to match(/#{attribute.to_s.capitalize} #{I18n.t('errors.messages.blank')}/)
+    end
+  end
+
+  shared_examples 'matches response schema' do |schema|
+    it 'matches response schema' do
+      expect(response).to match_response_schema(schema)
     end
   end
 
