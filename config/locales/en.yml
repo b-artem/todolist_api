@@ -37,13 +37,4 @@ en:
       already_exists: 'The project with such name does already exist'
     task:
       already_exists: 'The task with such name does already exist'
-      wrong_priority: "priority parameter must be 'up' or 'down' only"
-  projects:
-    destroy:
-      fail: 'Can not delete this project!'
-  tasks:
-    destroy:
-      fail: 'Can not delete this task!'
-  comments:
-    destroy:
-      fail: 'Can not delete this comment!'
+      wrong_priority: "parameter must be 'up' or 'down' only"

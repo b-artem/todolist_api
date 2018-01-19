@@ -1,4 +1,4 @@
-require 'task_update'
+require 'api/v1/task_update'
 
 class API::V1::TasksController < ApplicationController
   load_and_authorize_resource :project
@@ -10,19 +10,18 @@ class API::V1::TasksController < ApplicationController
 
   def create
     return render json: @task, status: :created if @task.save
-    render json: { errors: @task.errors }, status: :unprocessable_entity
+    render json: @task.errors.full_messages, status: :unprocessable_entity
   end
 
   def update
-    task_update = Services::TaskUpdate.new(task: @task, task_params: task_params,
-      change_priority: params[:change_priority])
+    task_update = API::V1::TaskUpdateService.new(task: @task,
+      task_params: task_params, change_priority: params[:change_priority])
     return render json: @task, status: :ok if task_update.call
-    render json: { errors: @task.errors }, status: :unprocessable_entity
+    render json: @task.errors.full_messages, status: :unprocessable_entity
   end
 
   def destroy
-    return head :no_content if @task.destroy
-    render json: { errors: I18n.t('.fail') }
+    head :no_content if @task.destroy
   end
 
   private

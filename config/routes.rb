@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   # end
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
-      resources :projects, only: %i[index show create update destroy] do
+      resources :projects, only: %i[index create update destroy] do
         resources :tasks, only: %i[index create update destroy] do
           resources :comments, only: %i[index create destroy]
         end

@@ -9,12 +9,11 @@ class API::V1::CommentsController < ApplicationController
 
   def create
     return render json: @comment, status: :created if @comment.save
-    render json: { errors: @comment.errors }, status: :unprocessable_entity
+    render json: @comment.errors.full_messages, status: :unprocessable_entity
   end
 
   def destroy
-    return head :no_content if @comment.destroy
-    render json: { errors: I18n.t('.fail') }
+    head :no_content if @comment.destroy
   end
 
   private
