@@ -15,14 +15,14 @@ class API::V1::CommentsController < ApplicationController
   end
 
   def_param_group :project_task_ids do
-    param :project_id, Integer, desc: 'Project ID', required: true
-    param :task_id, Integer, desc: 'ID of a Task, which comments belong to',
+    param :project_id, :number, desc: 'Project ID', required: true
+    param :task_id, :number, desc: 'ID of a Task, which comments belong to',
           required: true
   end
 
   def_param_group :ids do
     param_group :project_task_ids
-    param :id, Integer, desc: 'Comment ID', required: true
+    param :id, :number, desc: 'Comment ID', required: true
   end
 
   def_param_group :comment do

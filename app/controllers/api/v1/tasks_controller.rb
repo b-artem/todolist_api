@@ -16,13 +16,13 @@ class API::V1::TasksController < ApplicationController
   end
 
   def_param_group :project_id do
-    param :project_id, Integer, desc: 'ID of a Project which given Task belongs to',
+    param :project_id, :number, desc: 'ID of a Project which given Task belongs to',
           required: true
   end
 
   def_param_group :ids do
     param_group :project_id
-    param :id, Integer, desc: 'Task ID', required: true
+    param :id, :number, desc: 'Task ID', required: true
   end
 
   def_param_group :task do

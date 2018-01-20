@@ -13,7 +13,7 @@ class API::V1::ProjectsController < ApplicationController
   end
 
   def_param_group :id do
-    param :id, Integer, desc: 'Project ID', required: true
+    param :id, :number, desc: 'Project ID', required: true
   end
 
   def_param_group :project do
