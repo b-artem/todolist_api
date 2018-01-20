@@ -7,6 +7,7 @@ end
 
 gem 'active_model_serializers', '~> 0.10.7'
 gem 'acts_as_list', '~> 0.9.10'
+gem 'apipie-rails', '~> 0.5.6'
 gem 'cancancan', '~> 2.1', '>= 2.1.2'
 gem 'carrierwave', '~> 1.2', '>= 1.2.2'
 gem 'carrierwave-base64', '~> 2.6', '>= 2.6.1'
