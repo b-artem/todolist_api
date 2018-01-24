@@ -34,7 +34,7 @@ en:
     unacceptable_request_format: "Unacceptable request format. Use 'application/json please"
   models:
     project:
-      already_exists: 'The project with such name does already exist'
+      already_exists: 'is already used for another project'
     task:
-      already_exists: 'The task with such name does already exist'
+      already_exists: 'is already used for another task in this project'
       wrong_priority: "parameter must be 'up' or 'down' only"
