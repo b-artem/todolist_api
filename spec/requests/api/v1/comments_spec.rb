@@ -30,6 +30,7 @@ RSpec.describe 'API::V1 Comments', type: :request do
 
       include_examples 'returns status code 200'
       include_examples 'returns response in JSON'
+      include_examples 'matches response schema', :comments_text_only
 
       it 'returns array of comments which belong to given task only' do
         expect(json.size).to eq comments.size

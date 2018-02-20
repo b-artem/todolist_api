@@ -53,12 +53,13 @@ class API::V1::CommentsController < ApplicationController
       'Delete a comment'
   param_group :ids
   def destroy
-    head :no_content if @comment.destroy
+    @comment.destroy
+    head :no_content
   end
 
   private
 
-    def comment_params
-      params.require(:comment).permit(:text, :attachment)
-    end
+  def comment_params
+    params.require(:comment).permit(:text, :attachment)
+  end
 end

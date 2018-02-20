@@ -63,12 +63,13 @@ class API::V1::TasksController < ApplicationController
   api :DELETE, '/v1/projects/:project_id/tasks/:id', 'Delete a Task'
   param_group :ids
   def destroy
-    head :no_content if @task.destroy
+    @task.destroy
+    head :no_content
   end
 
   private
 
-    def task_params
-      params.require(:task).permit(:name, :done, :deadline)
-    end
+  def task_params
+    params.require(:task).permit(:name, :done, :deadline)
+  end
 end

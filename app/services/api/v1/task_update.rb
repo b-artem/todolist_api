@@ -19,15 +19,15 @@ class API::V1::TaskUpdateService
 
   private
 
-    def update_priority
-      unless DIRECTIONS.include?(@change_priority)
-        @task.errors.add(:priority, I18n.t('models.task.wrong_priority'))
-        return raise ActiveRecord::RecordInvalid
-      end
-      @change_priority == 'up' ? @task.move_higher : @task.move_lower
+  def update_priority
+    unless DIRECTIONS.include?(@change_priority)
+      @task.errors.add(:priority, I18n.t('models.task.wrong_priority'))
+      return raise ActiveRecord::RecordInvalid
     end
+    @change_priority == 'up' ? @task.move_higher : @task.move_lower
+  end
 
-    def update_all_except_priority
-      @task.update!(@task_params)
-    end
+  def update_all_except_priority
+    @task.update!(@task_params.except(:priority))
+  end
 end

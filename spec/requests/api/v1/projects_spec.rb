@@ -25,6 +25,7 @@ RSpec.describe 'API::V1 Projects', type: :request do
 
       include_examples 'returns status code 200'
       include_examples 'returns response in JSON'
+      include_examples 'matches response schema', :projects
 
       it 'returns array of projects which belong to signed in user only' do
         expect(json.size).to eq projects.size
@@ -48,6 +49,7 @@ RSpec.describe 'API::V1 Projects', type: :request do
 
         include_examples 'returns status code 201'
         include_examples 'returns response in JSON'
+        include_examples 'matches response schema', :project
 
         it 'returns created project' do
           expect(json['name']).to eq valid_attributes[:name]
@@ -82,6 +84,7 @@ RSpec.describe 'API::V1 Projects', type: :request do
 
         include_examples 'returns status code 200'
         include_examples 'returns response in JSON'
+        include_examples 'matches response schema', :project
 
         it 'returns updated project' do
           expect(json['name']).to eq valid_attributes[:name]

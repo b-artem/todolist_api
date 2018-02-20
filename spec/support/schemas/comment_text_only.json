@@ -1,4 +1,5 @@
 {
+  "description": "A single comment, text only",
   "type": "object",
   "required": [
     "id",

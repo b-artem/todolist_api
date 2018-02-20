@@ -27,6 +27,7 @@ RSpec.describe 'API::V1 Tasks', type: :request do
 
       include_examples 'returns status code 200'
       include_examples 'returns response in JSON'
+      include_examples 'matches response schema', :tasks
 
       it 'returns array of tasks which belong to given project only' do
         expect(json.size).to eq tasks.size
@@ -51,6 +52,7 @@ RSpec.describe 'API::V1 Tasks', type: :request do
 
         include_examples 'returns status code 201'
         include_examples 'returns response in JSON'
+        include_examples 'matches response schema', :task
 
         it 'returns created task' do
           expect(json['name']).to eq valid_attributes[:name]
@@ -86,6 +88,7 @@ RSpec.describe 'API::V1 Tasks', type: :request do
 
         include_examples 'returns status code 200'
         include_examples 'returns response in JSON'
+        include_examples 'matches response schema', :task
 
         it 'returns updated task' do
           expect(json['name']).to eq valid_attributes[:name]

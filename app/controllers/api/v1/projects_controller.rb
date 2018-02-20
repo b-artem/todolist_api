@@ -47,12 +47,13 @@ class API::V1::ProjectsController < ApplicationController
   api :DELETE, '/v1/projects/:id', 'Delete a project'
   param_group :id
   def destroy
-    head :no_content if @project.destroy
+    @project.destroy
+    head :no_content
   end
 
   private
 
-    def project_params
-      params.require(:project).permit(:name)
-    end
+  def project_params
+    params.require(:project).permit(:name)
+  end
 end

@@ -9,11 +9,11 @@ class ApplicationController < ActionController::API
     render nothing: true, status: :forbidden
   end
 
-  protected
+  private
 
-    def ensure_json_request
-      return if request.format == :json || request.headers["Accept"] =~ /json/
-      render json: { error: I18n.t('application.unacceptable_request_format') },
-             status: 406
-    end
+  def ensure_json_request
+    return if request.format == :json || request.headers["Accept"] =~ /json/
+    render json: { error: I18n.t('application.unacceptable_request_format') },
+           status: 406
+  end
 end
