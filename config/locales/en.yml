@@ -30,4 +30,11 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  application:
+    unacceptable_request_format: "Unacceptable request format. Use 'application/json please"
+  models:
+    project:
+      already_exists: 'is already used for another project'
+    task:
+      already_exists: 'is already used for another task in this project'
+      wrong_priority: "parameter must be 'up' or 'down' only"

@@ -1,24 +1,13 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### TODO List API (RG Courses task)
 
-Things you may want to cover:
+Documentation:
 
-* Ruby version
+https://todolist-api-artem.herokuapp.com/apipie
 
-* System dependencies
+TODO List Client (AngularJS) for this API:
 
-* Configuration
+https://github.com/b-artem/todolist_client/pull/1
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+https://todolist-client-artem.herokuapp.com
